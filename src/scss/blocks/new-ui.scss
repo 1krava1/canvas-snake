@@ -16,11 +16,12 @@ $darker: #4e494a;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 1em 2em;
+        padding: 1em;
 
         .score{
             display: flex;
             align-items: center;
+            margin-right: 1em;
 
             .coin{
                 width: 24px;
@@ -150,7 +151,7 @@ $darker: #4e494a;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 0 30px;
+        padding: 0 1em;
         margin-bottom: 2em;
     
         .controls{
@@ -196,14 +197,18 @@ $darker: #4e494a;
                         border-color: transparent transparent $darker transparent;
                         transform: translate(-50%, -50%);
                     }
-                    &--top{}
-                    &--top:before{ transform: translate(-50%, -90%) rotate(0deg); }
-                    &--left{}
-                    &--left:before{ transform: translate(-75%, -65%) rotate(270deg); }
-                    &--down{}
-                    &--down:before{ transform: translate(-50%, -25%) rotate(180deg); }
-                    &--right{}
-                    &--right:before{ transform: translate(-10%, -65%) rotate(90deg); }
+                    &--top{
+                        &:before{ transform: translate(-50%, -90%) rotate(0deg); }
+                    }
+                    &--left{
+                        &:before{ transform: translate(-75%, -65%) rotate(270deg); }
+                    }
+                    &--down{
+                        &:before{ transform: translate(-50%, -25%) rotate(180deg); }
+                    }
+                    &--right{
+                        &:before{ transform: translate(-10%, -65%) rotate(90deg); }
+                    }
                 }
             }
         }

@@ -57,7 +57,7 @@ class Snake {
         if ( !document.getElementById('canvas') ) return;
         this.direction = 90;
         this.directionsPull = [];
-        this.speed = .25;
+        this.speed = .5;
         this.field = new Field( config.field );
         this.lastFrame = 0;
         this.points = 0;
@@ -78,6 +78,7 @@ class Snake {
     }
 
     drawSnake() {
+        this.field.ctx.save();
         this.field.ctx.beginPath();
         this.nodes.forEach((node) => {
             this.field.ctx.rect(
@@ -87,8 +88,16 @@ class Snake {
                 this.field.height/this.field.rows,
             );
         });
+        this.field.ctx.fillStyle = "rgba(255, 255, 255, .4)";
+        this.field.ctx.fillRect(
+            (this.field.width/this.field.cols) * this.nodes[0].pos.x,
+            (this.field.height/this.field.rows) * this.nodes[0].pos.y,
+            this.field.width/this.field.cols,
+            this.field.height/this.field.rows
+        );
         this.field.ctx.lineWidth = 5;
         this.field.ctx.stroke();
+        this.field.ctx.restore();
     }
     drawApples() {
         this.field.ctx.save();
@@ -261,7 +270,7 @@ class Snake {
         });
     }
     triggerDirection( direction ){
-        if ( !direction ) return;
+        if ( !direction || this.isPaused ) return;
         switch( direction ){
             case('left'):
                 document.getElementById(this.controls.direction.left).classList.add('active');
