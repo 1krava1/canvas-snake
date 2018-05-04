@@ -1,0 +1,6 @@
+/node_modules/*
+/dist/*
+/src/css/*
+/src/html/*
+/src/style.css
+/src/script.js

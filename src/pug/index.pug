@@ -1,0 +1,28 @@
+html
+    head
+        title Snake
+        link('rel'="stylesheet", 'href'="../style.css")
+    body
+        main
+            section#console
+                article#data
+                    span#points 0
+                article#screen 
+                    canvas#canvas
+                article#controls 
+                    div.move-controls 
+                        div.move-controls-row 
+                            button#move-top.move-control('type'="button")
+                                span &uarr;
+                        div.move-controls-row 
+                            button#move-left.move-control('type'="button")
+                                span &larr;
+                            button#move-right.move-control('type'="button")
+                                span &rarr;
+                        div.move-controls-row 
+                            button#move-down.move-control('type'="button")
+                                span &darr;
+                    div.game-controls 
+                        button#togglePause pause/play
+                        button#restart restart game
+        script(src="../script.js")
