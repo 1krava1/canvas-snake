@@ -57,7 +57,7 @@ class Snake {
         if ( !document.getElementById('canvas') ) return;
         this.direction = 90;
         this.directionsPull = [];
-        this.speed = .5;
+        this.speed = .25;
         this.field = new Field( config.field );
         this.lastFrame = 0;
         this.points = 0;
@@ -214,10 +214,10 @@ class Snake {
                 newHead.pos.y = newHead.pos.y === this.field.rows - 1 ? 0 : newHead.pos.y + 1;
                 break;
             case 270:
-                newHead.pos.x = newHead.pos.x === 0 - 1 ? this.field.cols - 1 : newHead.pos.x - 1;
+                newHead.pos.x = newHead.pos.x === 0 ? this.field.cols - 1 : newHead.pos.x - 1;
                 break;
             case 0:
-                newHead.pos.y = newHead.pos.y === 0 - 1 ? this.field.rows - 1 : newHead.pos.y - 1;
+                newHead.pos.y = newHead.pos.y === 0 ? this.field.rows - 1 : newHead.pos.y - 1;
                 break;
         }
         this.nodes.unshift(newHead);
