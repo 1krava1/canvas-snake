@@ -3,25 +3,28 @@ html
         title Snake
         link('rel'="stylesheet", 'href'="../style.css")
     body
-        main
+        main#new-ui
             .game <!-- w: 190; h: 330 -->
                 div
                     .top <!-- h: 30 -->
                         .score <!-- fsz: 8; -->
                             span.coin
-                            span.points 12345
-                        button.play-pause.paused <!-- h: 28; w: 28; -->
-                            span.play-pause-text
+                            span#points.points 0
+                        .game-controls
+                            button#restart.game-controls-button.restart
+                                span.game-controls-button-text
+                            button#play-pause.game-controls-button.play-pause <!-- h: 28; w: 28; -->
+                                span.game-controls-button-text
                     .mid <!-- w: 164; h: 176; mb: 44; -->
-                        canvas.screen
+                        canvas#canvas.screen
                 .bot <!-- h: 55; -->
                     .controls
                         .controls-direction
                             .controls-direction-row
-                                .controls-direction-button.controls-direction-button--top <!-- w: 28; h: 24; -->
+                                button#move-top.controls-direction-button.controls-direction-button--top <!-- w: 28; h: 24; -->
                             .controls-direction-row
-                                button.controls-direction-button.controls-direction-button--left <!-- w: 28; h: 24; -->
-                                .controls-direction-button.controls-direction-button--down <!-- w: 28; h: 24; -->
-                                .controls-direction-button.controls-direction-button--right <!-- w: 28; h: 24; -->
+                                button#move-left.controls-direction-button.controls-direction-button--left <!-- w: 28; h: 24; -->
+                                button#move-down.controls-direction-button.controls-direction-button--down <!-- w: 28; h: 24; -->
+                                button#move-right.controls-direction-button.controls-direction-button--right <!-- w: 28; h: 24; -->
                 div
     script(src="../script.js")

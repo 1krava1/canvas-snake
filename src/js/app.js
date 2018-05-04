@@ -87,12 +87,13 @@ class Snake {
                 this.field.height/this.field.rows,
             );
         });
+        this.field.ctx.lineWidth = 5;
         this.field.ctx.stroke();
     }
     drawApples() {
         this.field.ctx.save();
         this.field.ctx.beginPath();
-        this.field.ctx.fillStyle = "#f00";
+        this.field.ctx.fillStyle = "#4e494a";
         this.apples.forEach((apple) => {
             this.field.ctx.moveTo(
                 ((this.field.width/this.field.cols) * apple.pos.x) + (this.field.width/this.field.cols),
@@ -101,7 +102,7 @@ class Snake {
             this.field.ctx.arc(
                 ((this.field.width/this.field.cols) * apple.pos.x) + (this.field.width/this.field.cols)/2,
                 ((this.field.height/this.field.rows) * apple.pos.y) + (this.field.height/this.field.rows)/2,
-                10,
+                (this.field.width/this.field.cols)*.4,
                 0,
                 2*Math.PI
             );
@@ -263,6 +264,10 @@ class Snake {
         if ( !direction ) return;
         switch( direction ){
             case('left'):
+                document.getElementById(this.controls.direction.left).classList.add('active');
+                setTimeout(() => {
+                    document.getElementById(this.controls.direction.left).classList.remove('active');
+                }, 100);
                 if ( this.directionsPull.length === 0 && this.direction !== 90 ) {
                     this.directionsPull.push(270);
                 } else if ( this.directionsPull.length > 0 && this.directionsPull.length < 2 && this.directionsPull[this.directionsPull.length - 1] !== 90 ) {
@@ -270,6 +275,10 @@ class Snake {
                 }
                 break;
             case('top'):
+                document.getElementById(this.controls.direction.top).classList.add('active');
+                setTimeout(() => {
+                    document.getElementById(this.controls.direction.top).classList.remove('active');
+                }, 100);
                 if ( this.directionsPull.length === 0 && this.direction !== 180 ) {
                     this.directionsPull.push(0);
                 } else if ( this.directionsPull.length > 0 && this.directionsPull.length < 2 && this.directionsPull[this.directionsPull.length - 1] !== 180 ) {
@@ -277,6 +286,10 @@ class Snake {
                 }
                 break;
             case('right'):
+                document.getElementById(this.controls.direction.right).classList.add('active');
+                setTimeout(() => {
+                    document.getElementById(this.controls.direction.right).classList.remove('active');
+                }, 100);
                 if ( this.directionsPull.length === 0 && this.direction !== 270 ) {
                     this.directionsPull.push(90);
                 } else if ( this.directionsPull.length > 0 && this.directionsPull.length < 2 && this.directionsPull[this.directionsPull.length - 1] !== 270 ) {
@@ -284,6 +297,10 @@ class Snake {
                 }
                 break;
             case('down'):
+                document.getElementById(this.controls.direction.down).classList.add('active');
+                setTimeout(() => {
+                    document.getElementById(this.controls.direction.down).classList.remove('active');
+                }, 100);
                 if ( this.directionsPull.length === 0 && this.direction !== 0 ) {
                     this.directionsPull.push(180);
                 } else if ( this.directionsPull.length > 0 && this.directionsPull.length < 2 && this.directionsPull[this.directionsPull.length - 1] !== 0 ) {
@@ -327,7 +344,6 @@ class Snake {
         this.direction = 90;
         this.directionsPull = [];
         this.speed = .25;
-        this.field = new Field();
         this.lastFrame = 0;
         this.points = 0;
         this.gameover = false;
@@ -344,26 +360,3 @@ class Snake {
         this.displayPoints();
     }
 }
-
-const config = {
-    field: {
-        id: 'canvas',
-        width: 1200,
-        height: 1200,
-        cols: 40,
-        rows: 40,
-    },
-    controls: {
-        direction: {
-            left: 'move-left',
-            top: 'move-top',
-            right: 'move-right',
-            down: 'move-down',
-        },
-        game: {
-            pause: 'togglePause',
-            restart: 'restart',
-        }
-    }
-}
-let snake = new Snake( config );

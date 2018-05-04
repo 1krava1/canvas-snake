@@ -1,91 +1,93 @@
-#console{
-    width: auto;
-    background: rgba(0, 0, 0, .5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 100%;
-    min-height: 100vh;
-    padding: 0 10%;
-}
-#screen{
-    border: 5px solid rgba(0, 0, 0, .5);
-    border-radius: 0 5px 5px 5px;
-    background: rgba(0, 0, 0, .3);
-    margin-bottom: 2em;
-}
-#canvas{
-    height: auto;
-    max-width: 100%;
-}
-#data{
-    width: 100%;
-}
-#points{
-    display: inline-block;
-    padding: 5px 15px;
-    border: 5px solid rgba(0, 0, 0, .5);
-    border-width: 5px 5px 0 5px;
-    border-radius: 5px 5px 0 0;
-    line-height: 1;
-    min-width: 10em;
-    max-width: 100%;
-}
-#controls{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10%;
-    width: 100%;
-}
-button{
-    background: transparent;
-    border: 1px solid #fff;
-    color: #ffffff;
-    padding: 5px 15px;
-    text-transform: uppercase;
-    border-radius: 2px;
-}
-.move-controls{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 240px;
-}
-.move-controls-row{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.move-controls-row:nth-child(2){
-    justify-content: space-between;
-}
-.move-control{
-    display: block;
-    padding: 0;
-    width: 33.3333333%;
-    position: relative;
-    padding-bottom: 33.3333333%;
-}
-.move-control span{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 3em;
-    line-height: 1;
-}
-.game-controls{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.game-controls button{
-    width: 100%;
-    margin-bottom: 2em;
-}
-.game-controls button:last-child{
-    margin-bottom: 0;
+#index{
+    #console{
+        width: auto;
+        background: rgba(0, 0, 0, .5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100%;
+        min-height: 100vh;
+        padding: 0 10%;
+    }
+    #screen{
+        border: 5px solid rgba(0, 0, 0, .5);
+        border-radius: 0 5px 5px 5px;
+        background: rgba(0, 0, 0, .3);
+        margin-bottom: 2em;
+    }
+    #canvas{
+        height: auto;
+        max-width: 100%;
+    }
+    #data{
+        width: 100%;
+    }
+    #points{
+        display: inline-block;
+        padding: 5px 15px;
+        border: 5px solid rgba(0, 0, 0, .5);
+        border-width: 5px 5px 0 5px;
+        border-radius: 5px 5px 0 0;
+        line-height: 1;
+        min-width: 10em;
+        max-width: 100%;
+    }
+    #controls{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10%;
+        width: 100%;
+    }
+    button{
+        background: transparent;
+        border: 1px solid #fff;
+        color: #ffffff;
+        padding: 5px 15px;
+        text-transform: uppercase;
+        border-radius: 2px;
+    }
+    .move-controls{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 240px;
+    }
+    .move-controls-row{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .move-controls-row:nth-child(2){
+        justify-content: space-between;
+    }
+    .move-control{
+        display: block;
+        padding: 0;
+        width: 33.3333333%;
+        position: relative;
+        padding-bottom: 33.3333333%;
+    }
+    .move-control span{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 3em;
+        line-height: 1;
+    }
+    .game-controls{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .game-controls button{
+        width: 100%;
+        margin-bottom: 2em;
+    }
+    .game-controls button:last-child{
+        margin-bottom: 0;
+    }
 }
