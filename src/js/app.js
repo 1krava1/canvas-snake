@@ -16,16 +16,22 @@ class AppleNode {
     }
 }
 class Field {
-    constructor( id = 'canvas', width = 1200, height = 900, cols = 40, rows = 30 ){
-        this.width = width;
-        this.height = height;
-        this.cols = cols;
-        this.rows = rows;
-        this.canvas = document.getElementById(id);
-        this.canvas.width = width;
-        this.canvas.height = height;
-        // this.canvas.style.width = width/2 + 'px';
-        // this.canvas.style.height = height/2 + 'px';
+    constructor( config ){
+        const defaultConfig = {
+            id: 'canvas',
+            width: 1200,
+            height: 900,
+            cols: 40,
+            rows: 30
+        };
+        config = Object.assign(defaultConfig, config);
+        this.width = config.width;
+        this.height = config.height;
+        this.cols = config.cols;
+        this.rows = config.rows;
+        this.canvas = document.getElementById(config.id);
+        this.canvas.width = config.width;
+        this.canvas.height = config.height;
         this.ctx = this.canvas.getContext('2d');
         this.ctx.strokeStyle = "#fff";
     }
@@ -34,12 +40,25 @@ class Field {
     }
 }
 class Snake {
-    constructor(){
+    constructor( config ){
+        const controlsDefault = {
+            direction: {
+                left: 'move-left',
+                top: 'move-top',
+                right: 'move-right',
+                down: 'move-down',
+            },
+            game: {
+                pause: 'togglePause',
+                restart: 'restart',
+            }
+        };
+        this.controls = Object.assign(controlsDefault, config.controls);
         if ( !document.getElementById('canvas') ) return;
         this.direction = 90;
         this.directionsPull = [];
         this.speed = .25;
-        this.field = new Field();
+        this.field = new Field( config.field );
         this.lastFrame = 0;
         this.points = 0;
         this.gameover = false;
@@ -218,10 +237,10 @@ class Snake {
             }
         });
         const moveButtons = {
-            left: document.getElementById('move-left'),
-            top: document.getElementById('move-top'),
-            right: document.getElementById('move-right'),
-            down: document.getElementById('move-down'),
+            left: document.getElementById(this.controls.direction.left),
+            top: document.getElementById(this.controls.direction.top),
+            right: document.getElementById(this.controls.direction.right),
+            down: document.getElementById(this.controls.direction.down),
         };
         moveButtons.left.addEventListener('click', (e) => {
             e.preventDefault();
@@ -274,10 +293,10 @@ class Snake {
         }
     }
     togglePauseControls(){
-        document.getElementById('togglePause').addEventListener( 'click', (e) => this.togglePause() );
+        document.getElementById(this.controls.game.pause).addEventListener( 'click', (e) => this.togglePause() );
     }
     restartControls(){
-        document.getElementById('restart').addEventListener( 'click', (e) => this.restart() );
+        document.getElementById(this.controls.game.restart).addEventListener( 'click', (e) => this.restart() );
     }
 
     play() {
@@ -325,13 +344,26 @@ class Snake {
         this.displayPoints();
     }
 }
-let snake = new Snake();
 
-document.querySelector('.play-pause').addEventListener('click', function(e){
-    e.preventDefault();
-    if ( this.classList.contains('paused') ){
-        this.classList.remove('paused');
-    } else {
-        this.classList.add('paused');
+const config = {
+    field: {
+        id: 'canvas',
+        width: 1200,
+        height: 1200,
+        cols: 40,
+        rows: 40,
+    },
+    controls: {
+        direction: {
+            left: 'move-left',
+            top: 'move-top',
+            right: 'move-right',
+            down: 'move-down',
+        },
+        game: {
+            pause: 'togglePause',
+            restart: 'restart',
+        }
     }
-});
+}
+let snake = new Snake( config );
