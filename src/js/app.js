@@ -35,6 +35,7 @@ class Field {
 }
 class Snake {
     constructor(){
+        if ( !document.getElementById('canvas') ) return;
         this.direction = 90;
         this.directionsPull = [];
         this.speed = .25;
@@ -325,3 +326,12 @@ class Snake {
     }
 }
 let snake = new Snake();
+
+document.querySelector('.play-pause').addEventListener('click', function(e){
+    e.preventDefault();
+    if ( this.classList.contains('paused') ){
+        this.classList.remove('paused');
+    } else {
+        this.classList.add('paused');
+    }
+});

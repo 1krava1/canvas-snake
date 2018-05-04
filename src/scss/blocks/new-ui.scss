@@ -1,0 +1,201 @@
+.background {
+    color: #cbc0a9;
+}
+.dark{
+    color: #4e494a;
+}
+.outline{
+    color: #6b6c73;
+}
+.shadow{
+    color: #9b948a;
+}
+.game{
+    width: 380px;
+    height: 760px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    background: #cbc0a9;
+}
+.game .top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em 2em;
+}
+.game .top .score{
+    display: flex;
+    align-items: center;
+}
+.game .top .score .coin{
+    width: 24px;
+    height: 32px;
+    position: relative;
+    border: 2px solid #4e494a;
+    border-radius: 40%;
+    margin-right: 10px;
+    box-shadow: inset -5px 0 0 0 rgba(155,148,138,1);
+}
+.game .top .score .coin:after{
+    content: '';
+    position: absolute;
+    display: block;
+    height: 80%;
+    width: 80%;
+    border: 2px solid;
+    border-color: transparent transparent transparent #9b948a;
+    border-radius: inherit;
+    left: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.game .top .score .points{
+    height: 15px;
+    line-height: 20px;
+}
+.game .top .play-pause{
+    height: 56px;
+    width: 56px;
+    position: relative;
+    background: #cbc0a9;
+    border: 2px dashed #9b948a;
+    padding: 0;
+    box-shadow: inset 0 0 0 0 rgba(155,148,138,1);
+    transition: .1s;
+}
+.game .top .play-pause:active{
+    border-style: solid;
+    box-shadow: inset 0 3px 0 0 rgba(155,148,138,1);
+}
+.game .top .play-pause:active .play-pause-text{
+    transform: translate(-50%, -40%);
+}
+.game .top .play-pause .play-pause-text{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    transition: .2s;
+    transform: translate(-50%, -50%);
+}
+.game .top .play-pause .play-pause-text:before,
+.game .top .play-pause .play-pause-text:after{
+    content: '';
+    display: block;
+    width: 40%;
+    height: 100%;
+    background: #4e494a;
+    border-radius: 20%;
+}
+.game .top .play-pause.paused .play-pause-text:before{content: none;}
+.game .top .play-pause.paused .play-pause-text:after{
+    width: 0;
+    height: 0;
+    background: transparent;
+    border-style: solid;
+    border-width: 12px 0 12px 20px;
+    border-color: transparent transparent transparent #4e494a;
+    border-radius: 0;
+}
+
+.game .mid{
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    margin-bottom: 2em;
+}
+.game .mid .screen{
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    line-height: 1;
+    background: #a0988f;
+}
+
+.game .bot{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+    margin-bottom: 2em;
+}
+.game .bot .controls{}
+.game .bot .controls-direction{}
+.game .bot .controls-direction-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.game .bot .controls-direction-button{
+    width: 56px;
+    height: 52px;
+    position: relative;
+    padding: 0;
+    border: 2px solid #4e494a;
+    border-radius: 4px;
+    background: #cbc0a9;
+    margin-bottom: -6px;
+    box-shadow: 0 6px 2px 0 rgba(155,148,138,1);
+    transition: .1s;
+}
+.game .bot .controls-direction-button:after{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 6px;
+    background: #6b6c73;
+    transition: .1s;
+}
+.game .bot .controls-direction-button:before{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border: 10px solid #4e494a;
+    border-color: transparent transparent #4e494a transparent;
+    transform: translate(-50%, -50%);
+}
+.game .bot .controls-direction-button--top{}
+.game .bot .controls-direction-button--top:before{ transform: translate(-50%, -90%) rotate(0deg); }
+.game .bot .controls-direction-button--left{}
+.game .bot .controls-direction-button--left:before{ transform: translate(-75%, -65%) rotate(270deg); }
+.game .bot .controls-direction-button--down{}
+.game .bot .controls-direction-button--down:before{ transform: translate(-50%, -25%) rotate(180deg); }
+.game .bot .controls-direction-button--right{}
+.game .bot .controls-direction-button--right:before{ transform: translate(-10%, -65%) rotate(90deg); }
+
+
+.game .bot .controls-direction-button:active{
+    transform: translateY( 3px );
+    box-shadow: 0 3px 2px 0 rgba(155,148,138,1);
+}
+.game .bot .controls-direction-button:active::after{
+    /*height: 3px;*/
+}
+
+*{
+    box-sizing: border-box;
+}
+html{
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+body{
+    margin: 0;
+}
+button{
+    outline: none;
+}

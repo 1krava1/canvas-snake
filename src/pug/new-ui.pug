@@ -1,0 +1,27 @@
+html
+    head
+        title Snake
+        link('rel'="stylesheet", 'href'="../style.css")
+    body
+        main
+            .game <!-- w: 190; h: 330 -->
+                div
+                    .top <!-- h: 30 -->
+                        .score <!-- fsz: 8; -->
+                            span.coin
+                            span.points 12345
+                        button.play-pause.paused <!-- h: 28; w: 28; -->
+                            span.play-pause-text
+                    .mid <!-- w: 164; h: 176; mb: 44; -->
+                        canvas.screen
+                .bot <!-- h: 55; -->
+                    .controls
+                        .controls-direction
+                            .controls-direction-row
+                                .controls-direction-button.controls-direction-button--top <!-- w: 28; h: 24; -->
+                            .controls-direction-row
+                                button.controls-direction-button.controls-direction-button--left <!-- w: 28; h: 24; -->
+                                .controls-direction-button.controls-direction-button--down <!-- w: 28; h: 24; -->
+                                .controls-direction-button.controls-direction-button--right <!-- w: 28; h: 24; -->
+                div
+    script(src="../script.js")
