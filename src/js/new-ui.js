@@ -9,6 +9,19 @@ if ( document.getElementById('new-ui') ) {
             }
         });
     }
+    function setGameSize( selector ){
+        if ( document.querySelector(selector) ) {
+            document.querySelector(selector).style.width = document.body.clientWidth + 'px';
+            document.querySelector(selector).style.height = document.body.clientHeight + 'px';
+        }
+    }
+    setGameSize('.game');
+    window.addEventListener('resize', function(){
+        window.requestAnimationFrame(function(){
+            setGameSize('.game');
+        });
+    });
+
     const config = {
         field: {
             id: 'canvas',
