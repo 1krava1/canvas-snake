@@ -16,9 +16,17 @@ if ( document.getElementById('new-ui') ) {
         }
     }
     setGameSize('.game');
+    function setCanvasSize( selector ){
+        if ( document.getElementById(selector) ) {
+            document.getElementById(selector).style.width = document.body.clientWidth - 30 + 'px';
+            document.getElementById(selector).style.height = document.body.clientWidth - 30 + 'px';
+        }
+    }
+    setCanvasSize('canvas');
     window.addEventListener('resize', function(){
         window.requestAnimationFrame(function(){
             setGameSize('.game');
+            setCanvasSize('canvas');
         });
     });
 
@@ -43,5 +51,5 @@ if ( document.getElementById('new-ui') ) {
             }
         }
     }
-    let snake = new Snake( config );
+    let game = new Game( config );
 }

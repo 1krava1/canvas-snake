@@ -46,7 +46,20 @@ gulp.task('css:watch', function(){
 });
 
 gulp.task('concat:js', function() {
-    return gulp.src('./src/js/**/*.js')
+    const files = [
+        './src/js/classes/Field.js',
+        './src/js/classes/Node.js',
+        './src/js/classes/NodeList.js',
+        './src/js/classes/SnakeNode.js',
+        './src/js/classes/AppleNode.js',
+        './src/js/classes/Snake.js',
+        './src/js/app.js',
+        './src/js/app.js',
+        './src/js/app.js',
+        './src/js/index.js',
+        './src/js/new-ui.js',
+    ];
+    return gulp.src(files)
            .pipe(concat('script.js'))
            .pipe(gulp.dest('./src/'));
 });

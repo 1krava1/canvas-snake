@@ -20,5 +20,5 @@ if ( document.getElementById('index') ) {
             }
         }
     }
-    let snake = new Snake( config );
+    let game = new Game( config );
 }
